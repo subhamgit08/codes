@@ -1,2 +1,4 @@
-# codes
- pyq codes
+# Codes
+-All codes of PYQ
+-Language used:- C
+ 
