@@ -1,23 +1,25 @@
+//using pointer delete occurances of a particular chracter from a string
 #include<stdio.h>
-int f(int x){
-    return x;
+void del(char *s,char *a,char ch){
+    
+while(*s!='\0'){
+    if(*s!=ch){
+        *a=*s;
+        a++;
+    }
+    s++;
+}
+*a='\0';
 
 }
 void main(){
-    int g,h;
-    int x;
-    scanf("%d",&x);
-    g=2*x*x + 6;
-    h=6*x*x + 2;
-  int a=f(g);
-  int b=f(h);
-  int c=f(g+h);
-  if (a+b==c)
-  {
-    printf("true");
-  }
-  else{
-    printf("false");
-  }
-  
+    char s[100],ans[100],ch;
+    printf("enter string");
+    scanf("%s",s);
+    printf("enter character to delete");
+    scanf(" %c",&ch);
+    del(s,ans,ch);
+    printf("%s",ans);
+
+    
 }
