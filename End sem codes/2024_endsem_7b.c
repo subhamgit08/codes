@@ -7,11 +7,11 @@ int main(){
     f1 = fopen("FILE_1.txt","w");
     f2 = fopen("FILE_2.txt","w");
     printf("Enter the content of the file 1: ");
-    // scanf("%s",file1);  for single word comparison
-    fgets(file1, sizeof(file1), stdin); // for multiword comparison
+    scanf("%s",file1);  //for single word comparison
+    // fgets(file1, sizeof(file1), stdin); // for multiword comparison
     printf("Enter the content of the file 2: ");
-    // scanf("%s",file2);
-    fgets(file2, sizeof(file2), stdin);
+    scanf("%s",file2);
+    // fgets(file2, sizeof(file2), stdin);
     if(f1==NULL||f2==NULL){
         printf("Error opening file\n");
         return 1;
@@ -28,24 +28,18 @@ int main(){
         printf("Error reopening file for reading\n");
         return 1;
     }
-    int flag = 1;
     int ch1,ch2;
     while(1){
         ch1 = fgetc(f1) ;
         ch2 = fgetc(f2);
         if(ch1!=ch2){
-            flag = 0;
+            printf("The files are Non-Identical\n");
             break;
         }
         if(ch1 == EOF || ch2 == EOF){
+            printf("The files are Identical\n");
             break;
         }
-    }
-    if(flag && ch1 == EOF && ch2 == EOF){
-        printf("The files are Identical\n");
-    }
-    else{
-        printf("The files are Non-Identical\n");
     }
     fclose(f1);
     fclose(f2);
